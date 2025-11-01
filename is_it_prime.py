@@ -27,16 +27,23 @@ def is_prime(n):
 
 def main():
     """Test the prime checking function with some examples."""
-    test_numbers = [2, 3, 4, 5, 17, 25, 29, 97, 100, 101]
-    
     print("Prime number checker:")
-    print("-" * 30)
+    print("-" * 10)
     
-    for num in test_numbers:
-        result = is_prime(num)
-        status = "prime" if result else "not prime"
-        print(f"{num:3d} is {status}")
-
+    # Allow the user to input a number
+    while True:
+        try:
+            user_input = input("Enter a number to check (or type 'exit' to quit): ")
+            if user_input.lower() == 'exit':
+                print("Goodbye!")
+                break
+            
+            num = int(user_input)
+            result = is_prime(num)
+            status = "prime" if result else "not prime"
+            print(f"{num} is {status}")
+        except ValueError:
+            print("Please enter a valid integer.")
 
 if __name__ == "__main__":
     main()
